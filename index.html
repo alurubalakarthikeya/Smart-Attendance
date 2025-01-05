@@ -27,7 +27,7 @@
         <div id="qr-reader" class="qr-scanner"></div>
         <br />
         <p class="green-text" id="result">Waiting for ID scan...</p>
-        <button id="ocr-button">Scan Text</button>
+        <button id="ocr-button" class="submit-btn">Scan Text</button>
         <input
           type="file"
           id="image-input"
@@ -41,7 +41,6 @@
       <p>&copy; Attendance System</p>
     </footer>
 
-    <!-- Include the Html5Qrcode and Tesseract.js libraries -->
     <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
     <script src="https://cdn.rawgit.com/naptha/tesseract.js/0.2.0/tesseract.min.js"></script>
 
@@ -80,7 +79,6 @@
           qrbox: { width: 250, height: 250 },
         };
 
-        // Start QR Code scanning
         html5QrCode
           .start(
             { facingMode: { exact: "environment" } },
@@ -101,9 +99,8 @@
               });
           });
 
-        // OCR functionality
         ocrButton.addEventListener("click", function () {
-          imageInput.click(); // Trigger the file input when button is clicked
+          imageInput.click();
         });
 
         imageInput.addEventListener("change", function (event) {
